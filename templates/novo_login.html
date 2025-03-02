@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Título Cadastro -->
+    <h2 class="login-title">Criar Conta</h2>
+
+    <!-- Formulário de cadastro -->
+    <form method="POST">
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required pattern="[A-Za-zÀ-ÿ\s]+" title="O nome deve conter apenas letras e espaços">
+        </div>
+        <div>
+            <label for="dataNasc">Data de Nascimento:</label>
+            <input type="date" id="dataNasc" name="dataNasc" required>
+        </div>
+        <div>
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" required>
+        </div>
+        <div>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <!-- Exibição de erros -->
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <!-- Link para voltar ao login -->
+    <p>Já tem uma conta? <a href="{{ url_for('login') }}">Faça login aqui</a>.</p>
+</body>
+</html>

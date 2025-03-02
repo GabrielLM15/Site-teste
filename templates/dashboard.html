@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        // Função para exibir as informações quando o botão for clicado
+        function mostrarInformacoes() {
+            document.getElementById("informacoes").style.display = "block";
+            document.getElementById("btnVisualizar").style.display = "none";
+            document.getElementById("btnVoltar").style.display = "block";
+        }
+
+        // Função para esconder as informações quando o botão Voltar for clicado
+        function esconderInformacoes() {
+            document.getElementById("informacoes").style.display = "none";
+            document.getElementById("btnVisualizar").style.display = "block";
+            document.getElementById("btnVoltar").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Bem-vindo, {{ nome }}!</h1>
+        <p>Este é o seu painel de controle, onde você pode visualizar suas informações.</p>
+
+        <button id="btnVisualizar" onclick="mostrarInformacoes()">Visualizar informações</button>
+
+        <div id="informacoes" style="display: none;">
+            <h3>Informações do usuário:</h3>
+            <ul>
+                <li><strong>Nome:</strong> {{ nome }}</li>
+                <li><strong>Data de Nascimento:</strong> {{ data_nasc }}</li>
+                <li><strong>Idade:</strong> {{ idade }} anos</li>
+            </ul>
+        </div>
+
+        <button id="btnVoltar" style="display: none;" onclick="esconderInformacoes()">Voltar</button>
+        <button class="logout" onclick="window.location.href='{{ url_for('logout') }}'">Sair</button>
+    </div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Título Login -->
+    <h2 class="login-title">Login</h2>
+
+    <!-- Formulário de login -->
+    <form method="POST">
+        <div>
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" required>
+        </div>
+        <div>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+        <button type="submit">Entrar</button>
+    </form>
+
+    <!-- Exibição de erros -->
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <!-- Link para cadastro -->
+    <p>Não possui cadastro? <a href="{{ url_for('novoLogin') }}">Realize o cadastro aqui</a>.</p>
+</body>
+</html>
+
