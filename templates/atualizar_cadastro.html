@@ -18,7 +18,7 @@
         <input type="text" name="nome" value="{{ email['nome'] }}" required><br><br>
 
         <label for="senha">Senha:</label>
-        <input type="password" name="senha" value="{{ email['senha'] }}" required><br><br>
+        <input type="password" name="senha" value="{{ email['senha'] }}" required pattern="^\S+$" title="A senha não pode conter espaços"><br><br>
 
         <div class="buttons-container">
             <button class="Voltar" onclick="window.location.href='{{ url_for('dashboard') }}'">Voltar</button>
