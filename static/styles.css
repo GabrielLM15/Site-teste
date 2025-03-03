@@ -59,7 +59,9 @@ button {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; /* Garante que o botão ocupe toda a largura */
+    width: 50%;  /* Mantém o botão com largura de 50% */
+    margin-top: 10px; /* Espaço superior para o botão */
+    align-self: center; /* Garante que o botão fique centralizado dentro do form */
 }
 
 button:hover {
@@ -74,8 +76,6 @@ button:hover {
 }
 
 
-
-
 /* Estilos para o painel de controle (dashboard) */
 .dashboard-container {
     background-color: white;
@@ -87,6 +87,9 @@ button:hover {
     text-align: center;
     font-size: 18px;
     color: #333;
+    display: flex;
+    flex-direction: column; /* Garante que os elementos do painel fiquem empilhados */
+    align-items: center; /* Centraliza os elementos dentro do painel */
 }
 
 .dashboard-container h1 {
@@ -100,24 +103,47 @@ button:hover {
     font-size: 18px;
 }
 
-.dashboard-container button {
+/* Estilo para o botão "Voltar" */
+button#btnVoltar {
+    background-color: #29a411;  /* Cor azul */
+    color: white;  /* Cor do texto */
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
     padding: 12px 24px;
-    background-color: #28a745;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%;  /* Define a largura do botão */
+    margin-top: 10px;
+    text-align: center; /* Garante que o texto do botão fique centralizado */
+}
+
+/* Efeito de hover para o botão "Voltar" */
+button#btnVoltar:hover {
+    background-color: #10781c;  /* Cor azul mais escura ao passar o mouse */
+}
+
+button#btnVisualizar {
+    background-color: #29a411;
     color: white;
     font-size: 16px;
     border-radius: 5px;
     border: none;
+    padding: 12px 24px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 50%;
+    margin-top: 10px;
+    text-align: center;
 }
 
-.dashboard-container button:hover {
-    background-color: #218838;
+button#btnVisualizar:hover {
+    background-color: #10781c;  /* Cor azul mais escura ao passar o mouse */
 }
+
 
 .dashboard-container .logout {
     background-color: #dc3545;
-    margin-top: 20px;
 }
 
 .dashboard-container .logout:hover {
@@ -140,3 +166,46 @@ button:hover {
     color: #333;
 }
 
+.buttons-container {
+    display: flex;  /* Usando flexbox para os botões ficarem lado a lado */
+    justify-content: space-between;  /* Espaço igual entre os botões */
+    gap: 10px;  /* Espaço entre os botões */
+    width: 100%;
+    margin-top: 10px; /* Espaço entre os botões e o formulário */
+}
+
+/* Estilo para o botão "Voltar" */
+button.Voltar {
+    background-color: #29a411;  /* Cor verde */
+    color: white;  /* Cor do texto */
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%;  /* Largura ajustada para os botões ficarem lado a lado */
+}
+
+/* Estilo para o botão "Atualizar" */
+button.Atualizar {
+    background-color: #007bff;  /* Cor azul */
+    color: white;  /* Cor do texto */
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%;  /* Largura ajustada para os botões ficarem lado a lado */
+}
+
+/* Efeito de hover para o botão "Voltar" */
+button.Voltar:hover {
+    background-color: #10781c;  /* Cor verde mais escura ao passar o mouse */
+}
+
+/* Efeito de hover para o botão "Atualizar" */
+button.Atualizar:hover {
+    background-color: #041dae;  /* Cor azul mais escura ao passar o mouse */
+}

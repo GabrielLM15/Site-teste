@@ -38,6 +38,7 @@
         </div>
 
         <button id="btnVoltar" style="display: none;" onclick="esconderInformacoes()">Voltar</button>
+        <button class="Atualizar" onclick="window.location.href= '{{ url_for('atualizarCadastro')}}'">Atualizar cadastro</button>
         <button class="logout" onclick="window.location.href='{{ url_for('logout') }}'">Sair</button>
     </div>
 </body>

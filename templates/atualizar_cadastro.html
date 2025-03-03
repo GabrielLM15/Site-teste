@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Cadastro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Atualizar Cadastro</h2>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" value="{{ email['nome'] }}" required><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" value="{{ email['senha'] }}" required><br><br>
+
+        <div class="buttons-container">
+            <button class="Voltar" onclick="window.location.href='{{ url_for('dashboard') }}'">Voltar</button>
+            <button type="submit" class="Atualizar">Atualizar</button>
+        </div>
+    </form>
+</body>
+</html>
+
