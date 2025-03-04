@@ -6,18 +6,18 @@
     <title>Painel de Controle</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script>
-        // Função para exibir as informações quando o botão for clicado
         function mostrarInformacoes() {
             document.getElementById("informacoes").style.display = "block";
             document.getElementById("btnVisualizar").style.display = "none";
             document.getElementById("btnVoltar").style.display = "block";
+            document.getElementById("btnAtualizar").style.display = "block";
         }
 
-        // Função para esconder as informações quando o botão Voltar for clicado
         function esconderInformacoes() {
             document.getElementById("informacoes").style.display = "none";
             document.getElementById("btnVisualizar").style.display = "block";
             document.getElementById("btnVoltar").style.display = "none";
+            document.getElementById("btnAtualizar").style.display = "none";
         }
     </script>
 </head>
@@ -34,16 +34,13 @@
                 <li><strong>Nome:</strong> {{ nome }}</li>
                 <li><strong>Data de Nascimento:</strong> {{ data_nasc }}</li>
                 <li><strong>Idade:</strong> {{ idade }} anos</li>
+                <li><strong>E-mail:</strong> {{ email }}</li>
             </ul>
         </div>
 
         <button id="btnVoltar" style="display: none;" onclick="esconderInformacoes()">Voltar</button>
-        <button class="Atualizar" onclick="window.location.href= '{{ url_for('atualizarCadastro')}}'">Atualizar cadastro</button>
-        <button class="logout" onclick="window.location.href='{{ url_for('logout') }}'">Sair</button>
+        <button id="btnAtualizar" class="Atualizar" style="display: none;" onclick="window.location.href= '{{ url_for('atualizarCadastro')}}'">Atualizar cadastro</button>
+        <button class="logout" onclick="window.location.href='{{ url_for('home') }}'">Sair</button>
     </div>
 </body>
 </html>
-
-
-
-

@@ -4,15 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-# Configuração do banco de dados SQLite
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///emails.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "sua_chave_secreta_aqui"
 
-# Inicialize o SQLAlchemy
 db = SQLAlchemy(app)
 
-# Modelo para a tabela de usuários
 class Usuario(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(50), unique=True, nullable=False)
@@ -23,7 +20,6 @@ class Usuario(db.Model):
     def __repr__(self):
         return f"<Usuario {self.nome}>"
 
-# Criação do banco de dados (isso só precisa ser feito uma vez)
 with app.app_context():
     db.create_all()
 
@@ -36,6 +32,10 @@ def calcular_idade(data_nasc):
         return None 
 
 @app.route("/", methods=["GET", "POST"])
+def home():
+    return render_template('home.html')
+
+@app.route("/login", methods=["GET", "POST"])
 def login():
     error = None
     if request.method == "POST":
@@ -64,7 +64,6 @@ def novoLogin():
         if calcular_idade(dataNasc) < 18:
             error = "Idade insuficiente"
         else:
-            # Verificar se o usuário já existe no banco de dados
             user_exists = Usuario.query.filter_by(email=email).first()
             if user_exists:
                 error = "Usuário já cadastrado!"
@@ -122,7 +121,7 @@ def dashboard():
             idade = calcular_idade(data_nasc)
             data_nascimento_formatada = datetime.strptime(data_nasc, "%Y-%m-%d").strftime("%d/%m/%Y")
             
-            return render_template("dashboard.html", nome=nome, data_nasc=data_nascimento_formatada, idade=idade)
+            return render_template("dashboard.html", nome=nome, data_nasc=data_nascimento_formatada, idade=idade, email=email)
     return redirect(url_for("login"))
 
 @app.route("/logout")

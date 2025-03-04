@@ -15,16 +15,63 @@ body {
     height: 100vh;
     margin: 0;
     padding: 20px;
-    flex-direction: column; /* Garante que o título e o formulário fiquem empilhados */
-    text-align: center; /* Centraliza o texto */
+    flex-direction: column; /* Garante que o título e o conteúdo fiquem empilhados */
+    text-align: center;
 }
 
-/* Estilos do título "Login" */
+/* Estilos do título "HOME" */
 .login-title {
     font-size: 28px;
     font-weight: bold;
-    margin-bottom: 20px;  /* Define o espaço entre o título e o formulário */
+    margin-top: 50px;  /* Espaço para o título não ficar colado no topo */
     color: #333;
+}
+
+/* Container de botões no canto superior direito */
+.buttons-home {
+    position: absolute;  /* Posiciona o container fora do fluxo normal */
+    top: 20px;  /* 20px de distância do topo */
+    right: 20px;  /* 20px de distância da borda direita */
+    display: flex;  /* Usando flexbox para os botões ficarem lado a lado */
+    gap: 10px;  /* Espaço entre os botões */
+}
+
+/* Estilo para o botão "Login" */
+button.login {
+    padding: 8px 15px;  /* Ajuste do tamanho do botão */
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto;  /* Ajustando a largura do botão */
+    max-width: 120px; /* Largura máxima */
+}
+
+/* Efeito de hover para o botão "Login" */
+button.login:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para o botão "Cadastrar" */
+button.novoLogin {
+    padding: 8px 15px;  /* Ajuste do tamanho do botão */
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto;  /* Ajustando a largura do botão */
+    max-width: 120px; /* Largura máxima */
+}
+
+/* Efeito de hover para o botão "Cadastrar" */
+button.novoLogin:hover {
+    background-color: #0056b3;
 }
 
 /* Estilos do container do formulário de login */
@@ -64,6 +111,7 @@ button {
     align-self: center; /* Garante que o botão fique centralizado dentro do form */
 }
 
+/* Efeito de hover para o botão */
 button:hover {
     background-color: #0056b3;
 }
@@ -74,7 +122,6 @@ button:hover {
     text-align: center;
     margin-top: 10px;
 }
-
 
 /* Estilos para o painel de controle (dashboard) */
 .dashboard-container {
@@ -105,7 +152,7 @@ button:hover {
 
 /* Estilo para o botão "Voltar" */
 button#btnVoltar {
-    background-color: #29a411;  /* Cor azul */
+    background-color: #29a411;  /* Cor verde */
     color: white;  /* Cor do texto */
     font-size: 16px;
     border-radius: 5px;
@@ -120,7 +167,7 @@ button#btnVoltar {
 
 /* Efeito de hover para o botão "Voltar" */
 button#btnVoltar:hover {
-    background-color: #10781c;  /* Cor azul mais escura ao passar o mouse */
+    background-color: #10781c;  /* Cor verde mais escura ao passar o mouse */
 }
 
 button#btnVisualizar {
@@ -138,9 +185,8 @@ button#btnVisualizar {
 }
 
 button#btnVisualizar:hover {
-    background-color: #10781c;  /* Cor azul mais escura ao passar o mouse */
+    background-color: #10781c;  /* Cor verde mais escura ao passar o mouse */
 }
-
 
 .dashboard-container .logout {
     background-color: #dc3545;

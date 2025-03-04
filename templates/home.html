@@ -1,0 +1,17 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2 class="login-title">??????</h2>
+    <!-- Botão de login no canto superior direito -->
+    <div class="buttons-home">
+        <button class="login" onclick="window.location.href='{{ url_for('login') }}'">Login</button>
+        <button class="novoLogin" onclick="window.location.href='{{ url_for('novoLogin') }}'">Cadastrar</button>
+    </div>
+</body>
+</html>
